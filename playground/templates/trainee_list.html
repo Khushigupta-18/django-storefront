@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trainee List</title>
+    <link rel="stylesheet" href="{% static 'core/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Trainee List</h1>
+        <ul>
+            {% for trainee in trainees %}
+                <li>
+                    <strong>{{ trainee.name }}</strong> - {{ trainee.email }} - <em>{{ trainee.is_active }}</em>
+                </li>
+            {% empty %}
+                <li>No trainees found.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<h2>{{ trainee.name }} - Projects</h2>
+
+<ul>
+  {% for project in projects %}
+    <li>
+      {{ project.title }} ({{ project.status }})
+    </li>
+  {% empty %}
+    <li>No projects assigned</li>
+  {% endfor %}
+</ul>
