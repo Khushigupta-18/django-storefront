@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'store',
     'tags',
-    'likes.apps.LikesConfig'
+    'likes.apps.LikesConfig'   # Add likes in the list of installed apps
 
 ]
 
