@@ -9,6 +9,8 @@ class Collection(models.Model):
     title = models.CharField(max_length=255)
     featured_product = models.ForeignKey('Product', on_delete=models.SET_NULL, null=True, related_name= '+')
 
+
+# Implementing one-to-one relationships
 class Product(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField()
@@ -17,7 +19,7 @@ class Product(models.Model):
     inventory = models.IntegerField()
     last_update = models.DateTimeField(auto_now=True)
     Collection = models.ForeignKey(Collection, on_delete=models.PROTECT)
-    promotions = models.ManyToManyField(Promotion, related_name='products')
+    promotions = models.ManyToManyField(Promotion, related_name='products') 
     
 class Customer(models.Model):
     MEMBERSHIP_BRONZE = 'B'
