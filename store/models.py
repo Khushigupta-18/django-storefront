@@ -11,6 +11,7 @@ class Collection(models.Model):
 
 
 # Implementing one-to-one relationships
+# Defining one-to-many relationships
 class Product(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField()
