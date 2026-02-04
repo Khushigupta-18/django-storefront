@@ -1,4 +1,6 @@
 # Create your models here.
+# creating models
+
 from django.db import models
 
 class Trainee(models.Model):
