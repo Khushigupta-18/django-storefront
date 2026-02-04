@@ -1,3 +1,4 @@
+# Resolving circular dependencies
 from django.db import models
 
 class Promotion(models.Model):
