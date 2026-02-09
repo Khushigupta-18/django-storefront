@@ -1,0 +1,15 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+<h1>Collections</h1>
+
+<ul>
+    {% for collection in collections %}
+        <li>
+            <a href="{% url 'store:collection_detail' collection.id %}">
+                {{ collection.title }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

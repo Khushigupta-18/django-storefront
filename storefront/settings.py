@@ -38,16 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.staticfiles',
     'playground',
-    'debug_toolbar',
     'store',
     'tags',
-    'likes.apps.LikesConfig'   # Add likes in the list of installed apps
-
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -86,8 +83,12 @@ WSGI_APPLICATION = 'storefront.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'storefront',
+        'HOST': 'localhost',
+        'USER': 'root',
+        'PASSWORD': 'Relipay#12@Services',
+        'PORT': '3306'
     }
 }
 

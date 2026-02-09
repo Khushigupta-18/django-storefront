@@ -1,0 +1,17 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+<h1>{{ collection.title }}</h1>
+
+<ul>
+    {% for product in products %}
+        <li>
+            <a href="{% url 'store:product_detail' product.slug %}">
+                {{ product.title }}
+            </a>
+        </li>
+    {% empty %}
+        <li>No products in this collection.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

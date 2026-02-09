@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Storefront{% endblock %}</title>
+</head>
+<body>
+
+<nav>
+    <a href="{% url 'store:product_list' %}">Products</a> |
+    <a href="{% url 'store:collection_list' %}">Collections</a> |
+    <a href="{% url 'store:view_cart' %}">Cart</a> |
+
+    {% if user.is_authenticated %}
+        <form action="{% url 'logout' %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</nav>
+
+<hr>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

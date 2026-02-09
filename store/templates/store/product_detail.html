@@ -1,0 +1,20 @@
+{% extends 'store/base.html' %}
+
+{% block title %}{{ product.title }}{% endblock %}
+
+{% block content %}
+<a href="{% url 'store:product_list' %}">← Back</a>
+
+<h1>{{ product.title }}</h1>
+
+<p>Price: ₹{{ product.unit_price }}</p>
+<p>Stock: {{ product.inventory }}</p>
+
+<p>{{ product.description }}</p>
+
+<form action="{% url 'store:add_to_cart' product.id %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Add to Cart</button>
+</form>
+
+{% endblock %}

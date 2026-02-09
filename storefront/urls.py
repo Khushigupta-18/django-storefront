@@ -16,16 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings   
+from store.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('playground.urls')),
+    path('', home, name='home'),
+    path('', include('store.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
-
-
-if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns += [
-        path('__debug__/', include(debug_toolbar.urls)),
-    ]
