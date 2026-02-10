@@ -16,11 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from store.views import home
+from store.views.products import product_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),
     path('', include('store.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),         #This gives you for free: /accounts/login/logout/password_reset
+    path('', product_list, name='home'),  # 👈 home page
 ]

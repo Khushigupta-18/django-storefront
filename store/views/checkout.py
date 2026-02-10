@@ -13,7 +13,7 @@ def checkout(request):
         return redirect('store:product_list')
 
     order = Order.objects.create(
-        customer=None,
+        customer=request.user,
         payment_status=Order.PAYMENT_STATUS_PENDING
     )
 

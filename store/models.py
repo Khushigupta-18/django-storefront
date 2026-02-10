@@ -2,6 +2,7 @@
 # Creating migrations
 # Run migrations
 from django.db import models
+from django.conf import settings
 
 
 class Promotion(models.Model):
@@ -96,7 +97,7 @@ class Order(models.Model):
     )
 
     customer = models.ForeignKey(
-    Customer,
+    settings.AUTH_USER_MODEL,
     on_delete=models.CASCADE,
         null=True,
         blank=True,

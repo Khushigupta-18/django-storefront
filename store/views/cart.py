@@ -41,3 +41,28 @@ def view_cart(request):
         'items': items,
         'total': total
     })
+    
+def remove_from_cart(request, item_id):
+        cart_id = request.session.get('cart_id')
+        if cart_id:
+            CartItem.objects.filter(id=item_id, cart_id=cart_id).delete()
+            return redirect('store:view_cart')
+
+
+def update_cart_item(request, item_id, action):
+    item = get_object_or_404(CartItem, id=item_id)
+
+    if action == 'increase':
+        item.quantity += 1
+        item.save()
+    elif action == 'decrease':
+        item.quantity -= 1
+        if item.quantity <= 0:
+            item.delete()
+        else:
+            item.save()
+
+    return redirect('store:view_cart')
+
+
+
