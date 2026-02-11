@@ -116,3 +116,10 @@ python manage.py createsuperuser
 
 # Run server
 python manage.py runserver
+
+
+
+
+#URLs
+http://127.0.0.1:8000/admin/auth/user/
+http://127.0.0.1:8000/     # For now home page is products list
