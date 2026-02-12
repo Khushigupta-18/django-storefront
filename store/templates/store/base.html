@@ -18,6 +18,9 @@
     {% else %}
         <a href="{% url 'login' %}">Login</a>
     {% endif %}
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+
 </nav>
 
 <hr>
