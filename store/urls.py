@@ -1,4 +1,5 @@
 from django.urls import path
+from .views import profile
 from store.views.products import product_list, product_detail
 from store.views.collections import collection_list, collection_detail
 from store.views.cart import add_to_cart, view_cart, remove_from_cart, update_cart_item
@@ -7,6 +8,8 @@ from store.views.checkout import checkout
 app_name = 'store'
 
 urlpatterns = [
+    path('accounts/profile/', profile, name='profile'),
+
     path('products/', product_list, name='product_list'),
     path('products/<slug:slug>/', product_detail, name='product_detail'),
 
