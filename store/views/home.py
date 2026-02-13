@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.shortcuts import render
 
 def home(request):
-    return redirect('store:product_list')
+    return render(request, 'store/home.html')
